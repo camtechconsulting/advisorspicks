@@ -3,6 +3,9 @@
   font-family: Arial, sans-serif;
   padding: 20px;
   text-align: center;
+  background-color: #121212;
+  color: #ffffff;
+  min-height: 100vh;
 }
 
 .tabs {
@@ -13,6 +16,10 @@ button {
   margin: 0 10px;
   padding: 10px 20px;
   cursor: pointer;
+  border: none;
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border-radius: 4px;
 }
 
 button.active {
@@ -20,8 +27,39 @@ button.active {
   color: white;
 }
 
+input {
+  padding: 8px 12px;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
 .widget-container {
   min-height: 600px;
-  border: 1px solid #ccc;
-  padding: 10px;
+  padding: 0;
+  margin: 0 auto;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tradingview-widget-container__widget,
+iframe,
+.trendlyne-wrapper blockquote {
+  width: 100% !important;
+  height: 100% !important;
+  border: none;
+}
+
+.trendlyne-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
