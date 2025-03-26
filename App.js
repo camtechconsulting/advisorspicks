@@ -6,7 +6,7 @@ const tabs = ['TradingView', 'Profit.com', 'Trendlyne'];
 
 function App() {
   const [activeTab, setActiveTab] = useState('TradingView');
-  const [trendlyneStock, setTrendlyneStock] = useState('INFY');
+  const [trendlyneStock, setTrendlyneStock] = useState('M&M');
   const [inputSymbol, setInputSymbol] = useState('');
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function App() {
       script.async = true;
       script.innerHTML = JSON.stringify({
         width: '100%',
-        height: 550,
+        height: '100%',
         defaultColumn: 'overview',
         defaultScreen: 'most_capitalized',
         market: 'america',
@@ -55,7 +55,6 @@ function App() {
     }
 
     if (activeTab === 'Trendlyne') {
-      // Remove any existing trendlyne widget script
       const oldScript = document.querySelector('script[src*="trendlyne.com"]');
       if (oldScript) oldScript.remove();
 
@@ -65,8 +64,8 @@ function App() {
 
         const block = document.createElement('blockquote');
         block.className = 'trendlyne-widgets';
-        block.setAttribute('data-get-url', `https://trendlyne.com/web-widget/technical-widget/Poppins/${trendlyneStock}/?posCol=00A25B&primaryCol=006AFF&negCol=EB3B00&neuCol=F7941E`);
-        block.setAttribute('data-theme', 'light');
+        block.setAttribute('data-get-url', `https://trendlyne.com/web-widget/qvt-widget/Poppins/${trendlyneStock}/?posCol=00A25B&primaryCol=006AFF&negCol=EB3B00&neuCol=F7941E`);
+        block.setAttribute('data-theme', 'dark');
         wrapper.appendChild(block);
 
         const script = document.createElement('script');
