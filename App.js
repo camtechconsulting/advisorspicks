@@ -55,22 +55,28 @@ function App() {
     }
 
     if (activeTab === 'Trendlyne') {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'trendlyne-wrapper';
+      // Remove any existing trendlyne widget script
+      const oldScript = document.querySelector('script[src*="trendlyne.com"]');
+      if (oldScript) oldScript.remove();
 
-      const block = document.createElement('blockquote');
-      block.className = 'trendlyne-widgets';
-      block.setAttribute('data-get-url', `https://trendlyne.com/web-widget/technical-widget/Poppins/${trendlyneStock}/?posCol=00A25B&primaryCol=006AFF&negCol=EB3B00&neuCol=F7941E`);
-      block.setAttribute('data-theme', 'light');
-      wrapper.appendChild(block);
+      setTimeout(() => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'trendlyne-wrapper';
 
-      const script = document.createElement('script');
-      script.src = 'https://cdn-static.trendlyne.com/static/js/webwidgets/tl-widgets.js';
-      script.async = true;
-      script.charset = 'utf-8';
+        const block = document.createElement('blockquote');
+        block.className = 'trendlyne-widgets';
+        block.setAttribute('data-get-url', `https://trendlyne.com/web-widget/technical-widget/Poppins/${trendlyneStock}/?posCol=00A25B&primaryCol=006AFF&negCol=EB3B00&neuCol=F7941E`);
+        block.setAttribute('data-theme', 'light');
+        wrapper.appendChild(block);
 
-      container.appendChild(wrapper);
-      container.appendChild(script);
+        const script = document.createElement('script');
+        script.src = 'https://cdn-static.trendlyne.com/static/js/webwidgets/tl-widgets.js';
+        script.async = true;
+        script.charset = 'utf-8';
+
+        container.appendChild(wrapper);
+        container.appendChild(script);
+      }, 100);
     }
   }, [activeTab, trendlyneStock]);
 
